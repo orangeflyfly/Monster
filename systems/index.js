@@ -1,0 +1,1 @@
+window.MW_SYSTEMS = { ...core, ...gather, ...build, ...capture, ...moodSystem, ...relationshipSystem, ...seasonSystem, ...weatherSystem, ...work, ...exhibition, ...collection, ...save, ...quests, ...market, ...training, ...crafting, ...merchants, ...geneliquid, ...breeding, ...expedition, ...arena, ...collections, ...decorationSystem, ...chronicles };
