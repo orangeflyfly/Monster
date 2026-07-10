@@ -36,7 +36,7 @@ function renderVaultModal() {
   function getFilteredMonsters() {
     switch (vaultFilter) {
       case 'working':  return state.monsters.filter((m) => !!m.assignedMap);
-      case 'idle':     return state.monsters.filter((m) => !m.assignedMap);
+      case 'idle':     return state.monsters.filter((m) => S.getMonsterActivity(state, m.id)?.type === 'idle');
       case 'locked':   return state.monsters.filter((m) => m.locked);
       case 'favorite': return state.monsters.filter((m) => m.favorite);
       default:         return state.monsters;

@@ -570,6 +570,8 @@ function renderCamp() {
 
       ${renderGenePool()}
 
+      ${renderExpedition()}
+
       <div class="panel">
         <h2>主要行動</h2>
         <div class="home-action-grid">
@@ -925,8 +927,7 @@ function renderCampMapPreview() {
   const assigned = state.monsters.filter((m) => m.assignedMap === activeMap);
   const isFull = S.getAssignedCount(state.monsters, activeMap) >= state.maps[activeMap].unlockedSlots;
   const eligibleMonsters = state.monsters.filter((m) =>
-    S.canEnterActivity(state, m.id, 'working').can &&
-    MONSTERS[m.type].specialty === activeMap
+    S.canEnterActivity(state, m.id, 'working').can
   );
   const ppm = calcMapPpm(activeMap);
   const slotCount = S.getAssignedCount(state.monsters, activeMap);
@@ -979,11 +980,14 @@ function renderCampMapPreview() {
   if (isFull) {
     assignmentControls = '<button class="assign-map-button" type="button" disabled>工作位已滿</button>';
   } else if (eligibleMonsters.length > 0) {
-    assignmentControls = eligibleMonsters.map((m) => `
-      <button class="assign-map-button" type="button" data-action="assign-monster" data-id="${m.id}" data-map="${activeMap}">
-        派遣 ${MONSTERS[m.type].name}
+    assignmentControls = eligibleMonsters.map((m) => {
+      const isSpecialty = MONSTERS[m.type].specialty === activeMap;
+      return `
+      <button class="assign-map-button" type="button" data-action="assign-monster" data-id="${m.id}" data-map="${activeMap}" ${isSpecialty ? '' : 'title="非專長區域，工作速度較慢"'}>
+        派遣 ${MONSTERS[m.type].name}${isSpecialty ? '' : '（非專長，較慢）'}
       </button>
-    `).join('');
+    `;
+    }).join('');
   }
 
   const upgradeHtml = nextTier

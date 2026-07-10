@@ -6,8 +6,8 @@ function renderExpedition() {
   const activeExpeditions = (state.expeditions || []).filter((e) => !e.collected);
 
   return `
-    <div>
-      <h3 style="font-size:1rem;margin-bottom:6px;">🗺️ 自動遠征</h3>
+    <div class="panel">
+      <h2>🗺️ 自動遠征</h2>
       <p style="font-size:0.78rem;color:#888;margin-bottom:8px;">
         派遣怪物隊伍出發探索，回來後領取獎勵。
       </p>

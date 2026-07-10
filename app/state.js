@@ -7,8 +7,6 @@ let state = S.createInitialState();
 let offlineEarnings = null;
 // 格式：{ ms: 0, resources: {} }
 let activeView = 'camp';
-let wildTab = 'capture';
-// 選項：'capture'、'expedition'
 let activeMap = 'forest';
 let selectedMonsterId = '';
 let encounter = null;

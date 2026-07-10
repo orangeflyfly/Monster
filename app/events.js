@@ -162,12 +162,6 @@ function handleActionUnsafe(target) {
     return;
   }
 
-  if (action === 'wild-tab') {
-    wildTab = target.dataset.tab || 'capture';
-    render();
-    return;
-  }
-
   if (action === 'open-vault') {
     vaultOpen = true;
     vaultSelectedId = '';
@@ -446,7 +440,6 @@ function handleActionUnsafe(target) {
         return;
       }
       activeView = 'wild';
-      wildTab = target.dataset.tab || 'capture';
     }
     render();
     return;
@@ -514,7 +507,8 @@ function handleActionUnsafe(target) {
     }
 
     encounter = S.getWildEncounter();
-    showMessage(`野外發現${encounter.name}，捕捉率 ${Math.round(encounter.captureRate * 100)}%。`);
+    const rate = S.getCaptureRateRange(state, encounter);
+    showMessage(`野外發現${encounter.name}，捕捉率約 ${Math.round(rate.min * 100)}%–${Math.round(rate.max * 100)}%。`);
     render();
     return;
   }
@@ -791,8 +785,8 @@ function handleActionUnsafe(target) {
       return;
     }
 
-    if (MONSTERS[monster.type].specialty !== mapId || monster.assignedMap) {
-      showMessage('只能派遣待命且專長符合該區域的怪物。');
+    if (monster.assignedMap) {
+      showMessage('只能派遣待命中的怪物。');
       render();
       return;
     }
