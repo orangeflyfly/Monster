@@ -1,0 +1,198 @@
+{
+  "version": "0.1.0",
+  "pipeline": "map-generation-pipeline",
+  "sourceData": {
+    "mapDataPath": "data/maps.js"
+  },
+  "defaults": {
+    "mapMode": "scene_mode",
+    "visualModel": "layered_raster",
+    "runtimeObjectModel": "y_sorted_props",
+    "collisionModel": "precise_shapes",
+    "engineTarget": "project-native",
+    "perspective": "3/4 top-down",
+    "artStyle": "clean HD hand-painted production area"
+  },
+  "maps": [
+    {
+      "assetId": "production-map:farm",
+      "mapId": "farm",
+      "displayName": "農田",
+      "resource": "Food",
+      "activity": "種植",
+      "status": "planned",
+      "canvas": { "width": 1536, "height": 864, "unit": "px" },
+      "outputs": {
+        "base": "assets/maps/production/farm/farm-base.png",
+        "basePrompt": "assets/maps/production/farm/farm-base.prompt.txt",
+        "dressedReference": "assets/maps/production/farm/farm-dressed-reference.png",
+        "propsManifest": "assets/maps/production/farm/farm-props.manifest.json",
+        "placement": "assets/maps/production/farm/farm-placement.json",
+        "collision": "assets/maps/production/farm/farm-collision.json",
+        "zones": "assets/maps/production/farm/farm-zones.json",
+        "sceneHooks": "assets/maps/production/farm/farm-scene-hooks.json",
+        "layeredPreview": "assets/maps/production/farm/farm-layered-preview.png",
+        "qc": "assets/maps/production/farm/qc/farm-map.qc.json"
+      },
+      "layers": [
+        { "id": "base", "role": "foundation-only fields, soil paths, low ground detail", "renderOrder": 0 },
+        { "id": "props", "role": "crop rows, small tools, blockers, resource nodes", "renderOrder": 10 },
+        { "id": "overlay", "role": "optional tall crop or tree occluders", "renderOrder": 20 }
+      ],
+      "objects": [
+        { "category": "crop-node", "assetStrategy": "one_by_one", "collisionRole": "interactable" },
+        { "category": "small-farm-decoration", "assetStrategy": "prop_pack_3x3", "collisionRole": "none" },
+        { "category": "field-blocker", "assetStrategy": "one_by_one", "collisionRole": "solid" }
+      ],
+      "validation": [
+        "base excludes tall props and runtime-controlled crop nodes",
+        "reference has no labels or UI",
+        "props and placements are separate from base"
+      ]
+    },
+    {
+      "assetId": "production-map:forest",
+      "mapId": "forest",
+      "displayName": "森林",
+      "resource": "Wood",
+      "activity": "伐木",
+      "status": "planned",
+      "canvas": { "width": 1536, "height": 864, "unit": "px" },
+      "outputs": {
+        "base": "assets/maps/production/forest/forest-base.png",
+        "basePrompt": "assets/maps/production/forest/forest-base.prompt.txt",
+        "dressedReference": "assets/maps/production/forest/forest-dressed-reference.png",
+        "propsManifest": "assets/maps/production/forest/forest-props.manifest.json",
+        "placement": "assets/maps/production/forest/forest-placement.json",
+        "collision": "assets/maps/production/forest/forest-collision.json",
+        "zones": "assets/maps/production/forest/forest-zones.json",
+        "sceneHooks": "assets/maps/production/forest/forest-scene-hooks.json",
+        "layeredPreview": "assets/maps/production/forest/forest-layered-preview.png",
+        "qc": "assets/maps/production/forest/qc/forest-map.qc.json"
+      },
+      "layers": [
+        { "id": "base", "role": "foundation-only moss, dirt paths, roots kept as ground texture", "renderOrder": 0 },
+        { "id": "props", "role": "trees, logs, bushes, wood resource nodes", "renderOrder": 10 },
+        { "id": "overlay", "role": "optional canopy occluders", "renderOrder": 20 }
+      ],
+      "objects": [
+        { "category": "tree-node", "assetStrategy": "one_by_one", "collisionRole": "interactable" },
+        { "category": "forest-decoration", "assetStrategy": "prop_pack_3x3", "collisionRole": "none" },
+        { "category": "large-tree-blocker", "assetStrategy": "one_by_one", "collisionRole": "solid" }
+      ],
+      "validation": [
+        "base excludes trees that need collision or y-sorting",
+        "tree and blocker assets are separate",
+        "canopy occluders are optional overlay assets"
+      ]
+    },
+    {
+      "assetId": "production-map:mine",
+      "mapId": "mine",
+      "displayName": "礦坑",
+      "resource": "Ore",
+      "activity": "採礦",
+      "status": "planned",
+      "canvas": { "width": 1536, "height": 864, "unit": "px" },
+      "outputs": {
+        "base": "assets/maps/production/mine/mine-base.png",
+        "basePrompt": "assets/maps/production/mine/mine-base.prompt.txt",
+        "dressedReference": "assets/maps/production/mine/mine-dressed-reference.png",
+        "propsManifest": "assets/maps/production/mine/mine-props.manifest.json",
+        "placement": "assets/maps/production/mine/mine-placement.json",
+        "collision": "assets/maps/production/mine/mine-collision.json",
+        "zones": "assets/maps/production/mine/mine-zones.json",
+        "sceneHooks": "assets/maps/production/mine/mine-scene-hooks.json",
+        "layeredPreview": "assets/maps/production/mine/mine-layered-preview.png",
+        "qc": "assets/maps/production/mine/qc/mine-map.qc.json"
+      },
+      "layers": [
+        { "id": "base", "role": "foundation-only stone floor, tunnels, low cracks", "renderOrder": 0 },
+        { "id": "props", "role": "ore nodes, carts, lamps, blockers", "renderOrder": 10 },
+        { "id": "overlay", "role": "optional foreground rock occluders", "renderOrder": 20 }
+      ],
+      "objects": [
+        { "category": "ore-node", "assetStrategy": "one_by_one", "collisionRole": "interactable" },
+        { "category": "mine-decoration", "assetStrategy": "prop_pack_3x3", "collisionRole": "none" },
+        { "category": "rock-blocker", "assetStrategy": "one_by_one", "collisionRole": "solid" }
+      ],
+      "validation": [
+        "base excludes ore nodes and mine carts",
+        "collision rocks are separate objects",
+        "lighting props declare render layer"
+      ]
+    },
+    {
+      "assetId": "production-map:hunting",
+      "mapId": "hunting",
+      "displayName": "獵場",
+      "resource": "Meat",
+      "activity": "狩獵",
+      "status": "planned",
+      "canvas": { "width": 1536, "height": 864, "unit": "px" },
+      "outputs": {
+        "base": "assets/maps/production/hunting/hunting-base.png",
+        "basePrompt": "assets/maps/production/hunting/hunting-base.prompt.txt",
+        "dressedReference": "assets/maps/production/hunting/hunting-dressed-reference.png",
+        "propsManifest": "assets/maps/production/hunting/hunting-props.manifest.json",
+        "placement": "assets/maps/production/hunting/hunting-placement.json",
+        "collision": "assets/maps/production/hunting/hunting-collision.json",
+        "zones": "assets/maps/production/hunting/hunting-zones.json",
+        "sceneHooks": "assets/maps/production/hunting/hunting-scene-hooks.json",
+        "layeredPreview": "assets/maps/production/hunting/hunting-layered-preview.png",
+        "qc": "assets/maps/production/hunting/qc/hunting-map.qc.json"
+      },
+      "layers": [
+        { "id": "base", "role": "foundation-only grassland, trails, low brush texture", "renderOrder": 0 },
+        { "id": "props", "role": "traps, hideouts, tall grass, blockers", "renderOrder": 10 },
+        { "id": "overlay", "role": "optional foreground grass occluders", "renderOrder": 20 }
+      ],
+      "objects": [
+        { "category": "hunting-node", "assetStrategy": "one_by_one", "collisionRole": "interactable" },
+        { "category": "grassland-decoration", "assetStrategy": "prop_pack_3x3", "collisionRole": "none" },
+        { "category": "trail-blocker", "assetStrategy": "one_by_one", "collisionRole": "solid" }
+      ],
+      "validation": [
+        "base excludes animals and trap objects",
+        "interactable hunting nodes are separate assets",
+        "zones may define encounter or work areas as metadata only"
+      ]
+    },
+    {
+      "assetId": "production-map:lake",
+      "mapId": "lake",
+      "displayName": "湖泊",
+      "resource": "Fish",
+      "activity": "釣魚",
+      "status": "planned",
+      "canvas": { "width": 1536, "height": 864, "unit": "px" },
+      "outputs": {
+        "base": "assets/maps/production/lake/lake-base.png",
+        "basePrompt": "assets/maps/production/lake/lake-base.prompt.txt",
+        "dressedReference": "assets/maps/production/lake/lake-dressed-reference.png",
+        "propsManifest": "assets/maps/production/lake/lake-props.manifest.json",
+        "placement": "assets/maps/production/lake/lake-placement.json",
+        "collision": "assets/maps/production/lake/lake-collision.json",
+        "zones": "assets/maps/production/lake/lake-zones.json",
+        "sceneHooks": "assets/maps/production/lake/lake-scene-hooks.json",
+        "layeredPreview": "assets/maps/production/lake/lake-layered-preview.png",
+        "qc": "assets/maps/production/lake/qc/lake-map.qc.json"
+      },
+      "layers": [
+        { "id": "base", "role": "foundation-only water, shoreline, low reeds as ground detail", "renderOrder": 0 },
+        { "id": "props", "role": "docks, fishing spots, rocks, reeds, blockers", "renderOrder": 10 },
+        { "id": "overlay", "role": "optional foreground reeds or water edge occluders", "renderOrder": 20 }
+      ],
+      "objects": [
+        { "category": "fishing-node", "assetStrategy": "one_by_one", "collisionRole": "interactable" },
+        { "category": "lake-decoration", "assetStrategy": "prop_pack_3x3", "collisionRole": "none" },
+        { "category": "shore-blocker", "assetStrategy": "one_by_one", "collisionRole": "solid" }
+      ],
+      "validation": [
+        "base excludes fish, docks, and interactable fishing spots",
+        "water-edge blockers are separate collision metadata",
+        "zones may define fishing work areas as metadata only"
+      ]
+    }
+  ]
+}

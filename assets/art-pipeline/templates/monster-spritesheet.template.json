@@ -1,0 +1,34 @@
+{
+  "assetId": "monster:<monsterId>:idle",
+  "monsterId": "<monsterId>",
+  "displayName": "<monster display name>",
+  "status": "planned",
+  "identityNotes": [
+    "stable silhouette",
+    "palette markers",
+    "face or eye markers",
+    "material language"
+  ],
+  "actions": [
+    {
+      "action": "idle",
+      "grid": {
+        "rows": 2,
+        "cols": 2,
+        "cellWidth": 384,
+        "cellHeight": 384
+      },
+      "frames": 4,
+      "componentMode": "largest",
+      "outputs": {
+        "rawSheet": "assets/sprites/monsters/<monsterId>/<monsterId>-idle-raw.png",
+        "transparentSheet": "assets/sprites/monsters/<monsterId>/<monsterId>-idle-transparent.png",
+        "framesDir": "assets/sprites/monsters/<monsterId>/frames/idle/",
+        "previewGif": "assets/sprites/monsters/<monsterId>/<monsterId>-idle-preview.gif",
+        "prompt": "assets/sprites/monsters/<monsterId>/<monsterId>-idle.prompt.txt",
+        "qc": "assets/sprites/monsters/<monsterId>/qc/<monsterId>-idle.qc.json"
+      }
+    }
+  ]
+}
+

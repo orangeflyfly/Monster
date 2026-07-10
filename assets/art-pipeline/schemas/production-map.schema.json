@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "production-map.schema.json",
+  "title": "Monster Workshop Production Map Manifest",
+  "type": "object",
+  "required": ["version", "pipeline", "sourceData", "defaults", "maps"],
+  "properties": {
+    "version": { "type": "string" },
+    "pipeline": { "const": "map-generation-pipeline" },
+    "sourceData": {
+      "type": "object",
+      "required": ["mapDataPath"],
+      "properties": {
+        "mapDataPath": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "defaults": {
+      "type": "object",
+      "required": ["mapMode", "visualModel", "runtimeObjectModel", "collisionModel", "engineTarget", "perspective", "artStyle"],
+      "properties": {
+        "mapMode": { "enum": ["scene_mode", "tile_mode"] },
+        "visualModel": { "enum": ["layered_raster", "tilemap", "layered_tilemap"] },
+        "runtimeObjectModel": { "enum": ["separate_props", "y_sorted_props", "interactive_scene_objects"] },
+        "collisionModel": { "enum": ["coarse_shapes", "precise_shapes", "tile_collision", "trigger_zones"] },
+        "engineTarget": { "enum": ["project-native", "raw_canvas"] },
+        "perspective": { "enum": ["top-down", "3/4 top-down"] },
+        "artStyle": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "maps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/productionMap" }
+    }
+  },
+  "$defs": {
+    "productionMap": {
+      "type": "object",
+      "required": ["assetId", "mapId", "displayName", "resource", "activity", "status", "canvas", "outputs", "layers", "objects", "validation"],
+      "properties": {
+        "assetId": { "type": "string" },
+        "mapId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "resource": { "type": "string" },
+        "activity": { "type": "string" },
+        "status": { "enum": ["planned", "generated", "processed", "approved", "rejected"] },
+        "canvas": {
+          "type": "object",
+          "required": ["width", "height", "unit"],
+          "properties": {
+            "width": { "type": "integer", "minimum": 1 },
+            "height": { "type": "integer", "minimum": 1 },
+            "unit": { "enum": ["px"] }
+          },
+          "additionalProperties": false
+        },
+        "outputs": {
+          "type": "object",
+          "required": ["base", "basePrompt", "dressedReference", "propsManifest", "placement", "collision", "zones", "sceneHooks", "layeredPreview", "qc"],
+          "properties": {
+            "base": { "type": "string" },
+            "basePrompt": { "type": "string" },
+            "dressedReference": { "type": "string" },
+            "propsManifest": { "type": "string" },
+            "placement": { "type": "string" },
+            "collision": { "type": "string" },
+            "zones": { "type": "string" },
+            "sceneHooks": { "type": "string" },
+            "layeredPreview": { "type": "string" },
+            "qc": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "role", "renderOrder"],
+            "properties": {
+              "id": { "type": "string" },
+              "role": { "type": "string" },
+              "renderOrder": { "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["category", "assetStrategy", "collisionRole"],
+            "properties": {
+              "category": { "type": "string" },
+              "assetStrategy": { "type": "string" },
+              "collisionRole": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "validation": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

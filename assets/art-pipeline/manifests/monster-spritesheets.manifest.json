@@ -1,0 +1,267 @@
+{
+  "version": "0.1.0",
+  "pipeline": "monster-sprite-pipeline",
+  "sourceData": {
+    "monsterDataPath": "data/monsters.js"
+  },
+  "defaults": {
+    "view": "3/4",
+    "artStyle": "project-native clean HD monster sprite",
+    "background": "#FF00FF",
+    "anchor": "feet",
+    "actions": [
+      {
+        "action": "idle",
+        "grid": {
+          "rows": 2,
+          "cols": 2,
+          "cellWidth": 384,
+          "cellHeight": 384
+        },
+        "frames": 4,
+        "componentMode": "largest",
+        "outputs": {
+          "rawSheet": "assets/sprites/monsters/{monsterId}/{monsterId}-idle-raw.png",
+          "transparentSheet": "assets/sprites/monsters/{monsterId}/{monsterId}-idle-transparent.png",
+          "framesDir": "assets/sprites/monsters/{monsterId}/frames/idle/",
+          "previewGif": "assets/sprites/monsters/{monsterId}/{monsterId}-idle-preview.gif",
+          "prompt": "assets/sprites/monsters/{monsterId}/{monsterId}-idle.prompt.txt",
+          "qc": "assets/sprites/monsters/{monsterId}/qc/{monsterId}-idle.qc.json"
+        }
+      }
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "monster:grassSpirit:idle",
+      "monsterId": "grassSpirit",
+      "displayName": "草精靈",
+      "status": "planned",
+      "identityNotes": ["plant spirit", "green palette", "small friendly silhouette", "leaf or sprout marker"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/grassSpirit/grassSpirit-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/grassSpirit/grassSpirit-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/grassSpirit/frames/idle/",
+            "previewGif": "assets/sprites/monsters/grassSpirit/grassSpirit-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/grassSpirit/grassSpirit-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/grassSpirit/qc/grassSpirit-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:goblin:idle",
+      "monsterId": "goblin",
+      "displayName": "哥布林",
+      "status": "planned",
+      "identityNotes": ["small worker creature", "forest and wood gathering theme", "clear ears or nose marker", "tool-friendly silhouette"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/goblin/goblin-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/goblin/goblin-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/goblin/frames/idle/",
+            "previewGif": "assets/sprites/monsters/goblin/goblin-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/goblin/goblin-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/goblin/qc/goblin-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:stoneMonster:idle",
+      "monsterId": "stoneMonster",
+      "displayName": "石頭怪",
+      "status": "planned",
+      "identityNotes": ["chunky rock body", "ore and stone material", "heavy stance", "mining theme"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/stoneMonster/stoneMonster-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/stoneMonster/stoneMonster-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/stoneMonster/frames/idle/",
+            "previewGif": "assets/sprites/monsters/stoneMonster/stoneMonster-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/stoneMonster/stoneMonster-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/stoneMonster/qc/stoneMonster-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:wolfDog:idle",
+      "monsterId": "wolfDog",
+      "displayName": "狼犬",
+      "status": "planned",
+      "identityNotes": ["canine silhouette", "alert hunting stance", "fur and fang markers", "low stable feet anchor"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/wolfDog/wolfDog-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/wolfDog/wolfDog-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/wolfDog/frames/idle/",
+            "previewGif": "assets/sprites/monsters/wolfDog/wolfDog-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/wolfDog/wolfDog-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/wolfDog/qc/wolfDog-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:kappa:idle",
+      "monsterId": "kappa",
+      "displayName": "河童",
+      "status": "planned",
+      "identityNotes": ["water creature", "shell or bowl marker", "blue green palette", "fishing and lake theme"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/kappa/kappa-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/kappa/kappa-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/kappa/frames/idle/",
+            "previewGif": "assets/sprites/monsters/kappa/kappa-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/kappa/kappa-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/kappa/qc/kappa-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:forest_guardian:idle",
+      "monsterId": "forest_guardian",
+      "displayName": "森林守護者",
+      "status": "planned",
+      "identityNotes": ["rare grassSpirit lineage", "larger guardian silhouette", "leaf crown or bark armor", "calm protector pose"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/forest_guardian/forest_guardian-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/forest_guardian/forest_guardian-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/forest_guardian/frames/idle/",
+            "previewGif": "assets/sprites/monsters/forest_guardian/forest_guardian-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/forest_guardian/forest_guardian-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/forest_guardian/qc/forest_guardian-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:goblin_king:idle",
+      "monsterId": "goblin_king",
+      "displayName": "哥布林王",
+      "status": "planned",
+      "identityNotes": ["rare goblin lineage", "small crown or command marker", "forest worker king", "confident stance"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/goblin_king/goblin_king-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/goblin_king/goblin_king-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/goblin_king/frames/idle/",
+            "previewGif": "assets/sprites/monsters/goblin_king/goblin_king-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/goblin_king/goblin_king-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/goblin_king/qc/goblin_king-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:rock_giant:idle",
+      "monsterId": "rock_giant",
+      "displayName": "岩石巨人",
+      "status": "planned",
+      "identityNotes": ["rare stoneMonster lineage", "large mineral body", "strong heavy anchor", "ore vein accents"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/rock_giant/rock_giant-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/rock_giant/rock_giant-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/rock_giant/frames/idle/",
+            "previewGif": "assets/sprites/monsters/rock_giant/rock_giant-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/rock_giant/rock_giant-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/rock_giant/qc/rock_giant-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:silver_wolf:idle",
+      "monsterId": "silver_wolf",
+      "displayName": "銀狼",
+      "status": "planned",
+      "identityNotes": ["rare wolfDog lineage", "silver fur", "sleek hunting silhouette", "alert ears and tail"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/silver_wolf/silver_wolf-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/silver_wolf/silver_wolf-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/silver_wolf/frames/idle/",
+            "previewGif": "assets/sprites/monsters/silver_wolf/silver_wolf-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/silver_wolf/silver_wolf-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/silver_wolf/qc/silver_wolf-idle.qc.json"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "monster:dragon_kappa:idle",
+      "monsterId": "dragon_kappa",
+      "displayName": "龍王河童",
+      "status": "planned",
+      "identityNotes": ["rare kappa lineage", "dragon crown or whisker marker", "water and scale material", "regal compact silhouette"],
+      "actions": [
+        {
+          "action": "idle",
+          "grid": { "rows": 2, "cols": 2, "cellWidth": 384, "cellHeight": 384 },
+          "frames": 4,
+          "componentMode": "largest",
+          "outputs": {
+            "rawSheet": "assets/sprites/monsters/dragon_kappa/dragon_kappa-idle-raw.png",
+            "transparentSheet": "assets/sprites/monsters/dragon_kappa/dragon_kappa-idle-transparent.png",
+            "framesDir": "assets/sprites/monsters/dragon_kappa/frames/idle/",
+            "previewGif": "assets/sprites/monsters/dragon_kappa/dragon_kappa-idle-preview.gif",
+            "prompt": "assets/sprites/monsters/dragon_kappa/dragon_kappa-idle.prompt.txt",
+            "qc": "assets/sprites/monsters/dragon_kappa/qc/dragon_kappa-idle.qc.json"
+          }
+        }
+      ]
+    }
+  ]
+}
+

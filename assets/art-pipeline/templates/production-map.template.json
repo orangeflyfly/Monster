@@ -1,0 +1,66 @@
+{
+  "assetId": "production-map:<mapId>",
+  "mapId": "<mapId>",
+  "displayName": "<map display name>",
+  "resource": "<resource key>",
+  "activity": "<activity label>",
+  "status": "planned",
+  "canvas": {
+    "width": 1536,
+    "height": 864,
+    "unit": "px"
+  },
+  "outputs": {
+    "base": "assets/maps/production/<mapId>/<mapId>-base.png",
+    "basePrompt": "assets/maps/production/<mapId>/<mapId>-base.prompt.txt",
+    "dressedReference": "assets/maps/production/<mapId>/<mapId>-dressed-reference.png",
+    "propsManifest": "assets/maps/production/<mapId>/<mapId>-props.manifest.json",
+    "placement": "assets/maps/production/<mapId>/<mapId>-placement.json",
+    "collision": "assets/maps/production/<mapId>/<mapId>-collision.json",
+    "zones": "assets/maps/production/<mapId>/<mapId>-zones.json",
+    "sceneHooks": "assets/maps/production/<mapId>/<mapId>-scene-hooks.json",
+    "layeredPreview": "assets/maps/production/<mapId>/<mapId>-layered-preview.png",
+    "qc": "assets/maps/production/<mapId>/qc/<mapId>-map.qc.json"
+  },
+  "layers": [
+    {
+      "id": "base",
+      "role": "foundation-only terrain",
+      "renderOrder": 0
+    },
+    {
+      "id": "props",
+      "role": "separate y-sorted props and blockers",
+      "renderOrder": 10
+    },
+    {
+      "id": "overlay",
+      "role": "optional foreground occluders",
+      "renderOrder": 20
+    }
+  ],
+  "objects": [
+    {
+      "category": "resource-node",
+      "assetStrategy": "one_by_one",
+      "collisionRole": "interactable"
+    },
+    {
+      "category": "small-decoration",
+      "assetStrategy": "prop_pack_3x3",
+      "collisionRole": "none"
+    },
+    {
+      "category": "blocker",
+      "assetStrategy": "one_by_one",
+      "collisionRole": "solid"
+    }
+  ],
+  "validation": [
+    "base contains no runtime props, actors, labels, UI, pickups, hazards, doors, or gates",
+    "dressed reference has at most 9 distinct object candidates and no annotations",
+    "placement, collision, zones, and scene hooks parse as JSON",
+    "layered preview dimensions match canvas"
+  ]
+}
+

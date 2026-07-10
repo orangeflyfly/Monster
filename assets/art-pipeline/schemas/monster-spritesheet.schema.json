@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "monster-spritesheet.schema.json",
+  "title": "Monster Workshop Monster Spritesheet Manifest",
+  "type": "object",
+  "required": ["version", "pipeline", "sourceData", "defaults", "assets"],
+  "properties": {
+    "version": { "type": "string" },
+    "pipeline": { "const": "monster-sprite-pipeline" },
+    "sourceData": {
+      "type": "object",
+      "required": ["monsterDataPath"],
+      "properties": {
+        "monsterDataPath": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "defaults": {
+      "type": "object",
+      "required": ["view", "artStyle", "background", "anchor", "actions"],
+      "properties": {
+        "view": { "enum": ["topdown", "side", "3/4"] },
+        "artStyle": { "type": "string" },
+        "background": { "const": "#FF00FF" },
+        "anchor": { "enum": ["center", "bottom", "feet"] },
+        "actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/actionSpec" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/monsterAsset" }
+    }
+  },
+  "$defs": {
+    "actionSpec": {
+      "type": "object",
+      "required": ["action", "grid", "frames", "componentMode", "outputs"],
+      "properties": {
+        "action": { "type": "string" },
+        "grid": {
+          "type": "object",
+          "required": ["rows", "cols", "cellWidth", "cellHeight"],
+          "properties": {
+            "rows": { "type": "integer", "minimum": 1 },
+            "cols": { "type": "integer", "minimum": 1 },
+            "cellWidth": { "type": "integer", "minimum": 1 },
+            "cellHeight": { "type": "integer", "minimum": 1 }
+          },
+          "additionalProperties": false
+        },
+        "frames": { "type": "integer", "minimum": 1 },
+        "componentMode": { "enum": ["largest", "all"] },
+        "outputs": {
+          "type": "object",
+          "required": ["rawSheet", "transparentSheet", "framesDir", "previewGif", "prompt", "qc"],
+          "properties": {
+            "rawSheet": { "type": "string" },
+            "transparentSheet": { "type": "string" },
+            "framesDir": { "type": "string" },
+            "previewGif": { "type": "string" },
+            "prompt": { "type": "string" },
+            "qc": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "monsterAsset": {
+      "type": "object",
+      "required": ["assetId", "monsterId", "displayName", "status", "identityNotes", "actions"],
+      "properties": {
+        "assetId": { "type": "string" },
+        "monsterId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "status": { "enum": ["planned", "generated", "processed", "approved", "rejected"] },
+        "identityNotes": { "type": "array", "items": { "type": "string" } },
+        "actions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/actionSpec" }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+
