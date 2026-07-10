@@ -104,6 +104,27 @@ function processWildResourceRecovery(state, now = TimeService.now()) {
   });
 }
 
+// 顯示用：回傳這次捕捉「實際會用到的公式」所對應的機率區間。
+// 陷阱加成在捕捉當下就已知，但天賦懲罰要等擲出天賦才知道，所以回傳範圍而非單一數字。
+function getCaptureRateRange(state, target) {
+  const enhancedTrapCount = (state.inventory && state.inventory.enhanced_trap) || 0;
+  const basicTrapCount = (state.inventory && state.inventory.basic_trap) || 0;
+  const trapBonus = enhancedTrapCount > 0 ? 0.15 : 0;
+  const talentRange = CONFIG.talentMax - CONFIG.talentMin;
+  const maxTalentPenalty = talentRange > 0 ? 0.2 : 0;
+
+  const best = Math.min(0.95, Math.max(0.05, target.captureRate + trapBonus));
+  const worst = Math.min(0.95, Math.max(0.05, target.captureRate + trapBonus - maxTalentPenalty));
+
+  return {
+    min: worst,
+    max: best,
+    usingEnhancedTrap: enhancedTrapCount > 0,
+    enhancedTrapCount,
+    basicTrapCount,
+  };
+}
+
 function attemptCapture(state, targetType) {
   if (!state.research.capture) {
     return { state, message: '需要先完成捕捉研究。', caught: false };
@@ -181,4 +202,5 @@ const capture = {
   canAttemptCapture,
   processWildResourceRecovery,
   attemptCapture,
+  getCaptureRateRange,
 };

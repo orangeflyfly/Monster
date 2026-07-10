@@ -37,7 +37,7 @@ function canEnterActivity(state, monsterId, activityType) {
 
   const monster = state.monsters.find((m) => m.id === monsterId);
 
-  const destructiveActions = ['release', 'retire', 'sell'];
+  const destructiveActions = ['release', 'retire', 'sell', 'donate'];
   if (monster.locked && destructiveActions.includes(activityType)) {
     return { can: false, reason: `${MONSTERS[monster.type]?.name} 已鎖定，請先解鎖。` };
   }

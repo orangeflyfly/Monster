@@ -240,7 +240,7 @@ function useBreedingHint(state) {
   }
 
   const undiscovered = Object.keys(BREEDING_RECIPES)
-    .filter((key) => !(state.breedingRecordIds || []).includes(key));
+    .filter((key) => !(state.hintRevealed || []).includes(key) && !(state.breedingRecordIds || []).includes(key));
   if (undiscovered.length === 0) {
     return { state, message: '所有配方都已發現！' };
   }

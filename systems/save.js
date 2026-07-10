@@ -475,7 +475,11 @@ function importSave(onSuccess) {
     reader.onload = (ev) => {
       try {
         const loaded = JSON.parse(ev.target.result);
-        const migrated = normalizeState(loaded);
+        let toMigrate = loaded;
+        if (!toMigrate.saveVersion || toMigrate.saveVersion < 2) {
+          toMigrate = migrateV1ToV2(toMigrate);
+        }
+        const migrated = normalizeState(toMigrate);
         localStorage.setItem(CONFIG.saveKey, JSON.stringify(migrated));
         onSuccess(migrated);
       } catch (err) {
@@ -561,10 +565,33 @@ function applyOfflineProduction(state, now) {
     return { state: savedState, offlineMs: 0 };
   }
 
+  let nextState = processWork(savedState, offlineMs);
+  nextState = applyOfflineExhibitionIncome(nextState, offlineMs);
+
   return {
-    state: processWork(savedState, offlineMs),
+    state: nextState,
     offlineMs,
   };
+}
+
+// 補算離線期間的展覽館收益（原本只在遊戲開啟時每分鐘結算一次，離線時完全不會累積）
+function applyOfflineExhibitionIncome(state, offlineMs) {
+  const minutes = Math.floor(offlineMs / 60000);
+  if (minutes <= 0) return state;
+
+  const perMinute = calcExhibitionIncome(state);
+  if (perMinute.coins === 0 && perMinute.researchPoints === 0) return state;
+
+  const cap = CONFIG.resourceCaps.Coins || 9999;
+  const resources = Object.assign({}, state.resources, {
+    Coins: Math.min((state.resources.Coins || 0) + perMinute.coins * minutes, cap),
+  });
+  const researchPoints = Math.min(
+    (state.researchPoints || 0) + perMinute.researchPoints * minutes,
+    999
+  );
+
+  return Object.assign({}, state, { resources, researchPoints });
 }
 
 const save = {

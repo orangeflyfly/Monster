@@ -80,7 +80,11 @@ function exchangeCert(state, exchangeId) {
   const monsters = [...state.monsters, newMonster];
   const compendium = Object.assign({}, state.compendium || {});
   compendium.monsters = Object.assign({}, compendium.monsters, {
-    [resultType]: { discovered: true, firstCaughtAt: TimeService.now(), count: 1 },
+    [resultType]: {
+      discovered: true,
+      firstCaughtAt: (compendium.monsters?.[resultType] || {}).firstCaughtAt || TimeService.now(),
+      count: ((compendium.monsters?.[resultType] || {}).count || 0) + 1,
+    },
   });
 
   return {

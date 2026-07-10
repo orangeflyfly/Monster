@@ -1,4 +1,5 @@
 function relationshipPairMatches(pair, typeA, typeB) {
+  if (typeA === typeB) return false; // 同物種不構成「兩種怪物」的配對關係
   return pair.includes(typeA) && pair.includes(typeB);
 }
 
