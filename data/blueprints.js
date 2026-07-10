@@ -1,0 +1,36 @@
+const BLUEPRINTS = {
+  advanced_trap_blueprint: {
+    id: 'advanced_trap_blueprint',
+    name: '強化陷阱圖紙',
+    desc: '解鎖強化陷阱的製作方法，捕捉率提高15%。',
+    category: 'trap',
+    unlocks: 'enhanced_trap_craft',
+    craftCost: { Wood: 10, metal_parts: 1 },
+    craftOutput: { enhanced_trap: 1 },
+  },
+  premium_tank_blueprint: {
+    id: 'premium_tank_blueprint',
+    name: '精密培養槽圖紙',
+    desc: '解鎖精密培養槽的建造方法。',
+    category: 'facility',
+    unlocks: 'premium_tank',
+  },
+  special_feed_blueprint: {
+    id: 'special_feed_blueprint',
+    name: '特殊飼料圖紙',
+    desc: '解鎖特殊飼料的加工配方。',
+    category: 'recipe',
+    unlocks: 'special_feed_craft',
+    craftCost: { Food: 20, herb_bundle: 3, kappa_gel: 1 },
+    craftOutput: { premium_feed: 3 },
+  },
+  gene_enhancer_blueprint: {
+    id: 'gene_enhancer_blueprint',
+    name: '基因強化液圖紙',
+    desc: '解鎖基因強化液的合成方法。',
+    category: 'gene',
+    unlocks: 'gene_enhancer_craft',
+    craftCost: { green_essence: 3, stone_essence: 2, Ore: 10 },
+    craftOutput: { talent_gene_liquid: 1 },
+  },
+};

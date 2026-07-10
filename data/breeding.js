@@ -1,0 +1,42 @@
+const BREEDING_RECIPES = {
+  goblin_grassSpirit: {
+    id: 'goblin_grassSpirit',
+    parents: ['goblin', 'grassSpirit'],
+    normalResult: 'grassSpirit',
+    mutationResult: null,
+    mutationChance: 0,
+    discovered: false,
+  },
+  grassSpirit_kappa: {
+    id: 'grassSpirit_kappa',
+    parents: ['grassSpirit', 'kappa'],
+    normalResult: 'grassSpirit',
+    mutationResult: 'water_sprite',
+    mutationChance: 0.08,
+    discovered: false,
+  },
+  stoneMonster_wolfDog: {
+    id: 'stoneMonster_wolfDog',
+    parents: ['stoneMonster', 'wolfDog'],
+    normalResult: 'stoneMonster',
+    mutationResult: 'flame_stone_wolf',
+    mutationChance: 0.08,
+    discovered: false,
+  },
+  grassSpirit_stoneMonster: {
+    id: 'grassSpirit_stoneMonster',
+    parents: ['grassSpirit', 'stoneMonster'],
+    normalResult: 'grassSpirit',
+    mutationResult: 'crystal_sprite',
+    mutationChance: 0.08,
+    discovered: false,
+  },
+  goblin_wolfDog: {
+    id: 'goblin_wolfDog',
+    parents: ['goblin', 'wolfDog'],
+    normalResult: 'wolfDog',
+    mutationResult: 'shadow_wolf',
+    mutationChance: 0.08,
+    discovered: false,
+  },
+};

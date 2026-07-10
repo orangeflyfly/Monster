@@ -1,0 +1,82 @@
+const MAP_UPGRADE_COSTS = [
+  { slots: 4,  cost: {} },
+  { slots: 6,  cost: { Wood: 30,  Ore: 15 } },
+  { slots: 8,  cost: { Wood: 60,  Ore: 30 } },
+  { slots: 10, cost: { Wood: 100, Ore: 50 } },
+  { slots: 12, cost: { Wood: 150, Ore: 80, Meat: 30 } },
+  { slots: 14, cost: { Wood: 200, Ore: 120, Meat: 60 } },
+  { slots: 16, cost: { Wood: 300, Ore: 180, Meat: 100, Fish: 50 } },
+];
+
+const MAPS = {
+  farm: {
+    id: 'farm',
+    name: '農田',
+    resource: 'Food',
+    activity: '種植',
+    image: 'assets/maps/production/farm/farm_production_map.png',
+    themeClass: 'map-farm',
+    decorations: ['🌾', '🌾', '🌿', '🟫', '🌱'],
+    upgradeCosts: MAP_UPGRADE_COSTS,
+    specializationOptions: [
+      { id: 'farm_mass_production', name: '大量生產', desc: '農田產量 +25%。', outputBonus: 0.25 },
+      { id: 'farm_rare_yield', name: '稀有作物', desc: '農田掉落機率 +50%。', dropChanceBonus: 0.5 },
+    ],
+  },
+  forest: {
+    id: 'forest',
+    name: '森林',
+    resource: 'Wood',
+    activity: '伐木',
+    image: 'assets/maps/production/forest/forest_production_map.png',
+    themeClass: 'map-forest',
+    decorations: ['🌲', '🌳', '🌲', '🌿', '🍃'],
+    upgradeCosts: MAP_UPGRADE_COSTS,
+    specializationOptions: [
+      { id: 'forest_mass_production', name: '大量生產', desc: '森林產量 +25%。', outputBonus: 0.25 },
+      { id: 'forest_rare_yield', name: '稀有素材', desc: '森林掉落機率 +50%。', dropChanceBonus: 0.5 },
+    ],
+  },
+  mine: {
+    id: 'mine',
+    name: '礦坑',
+    resource: 'Ore',
+    activity: '採礦',
+    image: 'assets/maps/production/mine/mine_production_map.png',
+    themeClass: 'map-mine',
+    decorations: ['🪨', '⛏️', '🪨', '💎', '🟤'],
+    upgradeCosts: MAP_UPGRADE_COSTS,
+    specializationOptions: [
+      { id: 'mine_mass_production', name: '大量生產', desc: '礦坑產量 +25%。', outputBonus: 0.25 },
+      { id: 'mine_rare_yield', name: '稀有礦脈', desc: '礦坑掉落機率 +50%。', dropChanceBonus: 0.5 },
+    ],
+  },
+  hunting: {
+    id: 'hunting',
+    name: '獵場',
+    resource: 'Meat',
+    activity: '狩獵',
+    image: 'assets/maps/production/hunting/hunting_ground_production_map.png',
+    themeClass: 'map-hunting',
+    decorations: ['🌿', '🌾', '🦌', '🌿', '🍂'],
+    upgradeCosts: MAP_UPGRADE_COSTS,
+    specializationOptions: [
+      { id: 'hunting_mass_production', name: '大量生產', desc: '獵場產量 +25%。', outputBonus: 0.25 },
+      { id: 'hunting_rare_yield', name: '稀有獵物', desc: '獵場掉落機率 +50%。', dropChanceBonus: 0.5 },
+    ],
+  },
+  lake: {
+    id: 'lake',
+    name: '湖泊',
+    resource: 'Fish',
+    activity: '釣魚',
+    image: 'assets/maps/production/lake/lake_production_map.png',
+    themeClass: 'map-lake',
+    decorations: ['🌊', '💧', '🐟', '🌿', '🪸'],
+    upgradeCosts: MAP_UPGRADE_COSTS,
+    specializationOptions: [
+      { id: 'lake_mass_production', name: '大量生產', desc: '湖泊產量 +25%。', outputBonus: 0.25 },
+      { id: 'lake_rare_yield', name: '稀有漁獲', desc: '湖泊掉落機率 +50%。', dropChanceBonus: 0.5 },
+    ],
+  },
+};

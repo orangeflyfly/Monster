@@ -1,0 +1,76 @@
+const BUILDINGS = {
+  researchTable: {
+    id: 'researchTable',
+    name: '研究台',
+    description: '解鎖營地研究與捕捉準備。',
+    cost: CONFIG.buildings.researchTable.cost,
+  },
+};
+
+const RESEARCH = {
+  capture: {
+    id: 'capture',
+    name: '捕捉研究',
+    description: '完成後可前往野外捕捉怪物。',
+    requiresBuilding: 'researchTable',
+    cost: CONFIG.research.capture.cost,
+    unlocks: 'capture',
+  },
+  trap_making: {
+    name: '陷阱製作',
+    description: '可以製作基礎陷阱，捕捉時消耗陷阱。',
+    cost: { Wood: 15, Ore: 8 },
+    requiresBuilding: 'researchTable',
+    requires: ['capture'],
+    unlocks: 'trap',
+  },
+  monster_biology: {
+    name: '怪物生態學',
+    description: '解鎖物種研究功能，野放有研究回饋。',
+    cost: { Wood: 20, Ore: 10 },
+    requiresBuilding: 'researchTable',
+    requires: ['capture'],
+    unlocks: 'species_research',
+  },
+  advanced_training: {
+    name: '進階訓練法',
+    description: '解鎖訓練設施，可提升怪物能力。',
+    cost: { Wood: 40, Ore: 20, Meat: 10 },
+    requiresBuilding: 'researchTable',
+    requires: ['monster_biology'],
+    unlocks: 'training',
+  },
+  breeding_basics: {
+    name: '繁殖基礎',
+    description: '解鎖繁殖設施，可讓怪物配種產蛋。',
+    cost: { Wood: 60, Ore: 30, Meat: 20 },
+    requiresBuilding: 'researchTable',
+    requires: ['advanced_training'],
+    unlocks: 'breeding',
+  },
+  field_expedition: {
+    name: '野外探勘',
+    description: '解鎖特殊地點探索。',
+    cost: { Wood: 30, Ore: 15, Fish: 10 },
+    requiresBuilding: 'researchTable',
+    requires: ['capture'],
+    unlocks: 'special_locations',
+  },
+  quest_board: {
+    name: '委託板',
+    description: '解鎖委託系統，每天接受不同委託任務。',
+    cost: { Wood: 25, Ore: 12 },
+    requiresBuilding: 'researchTable',
+    requires: ['capture'],
+    unlocks: 'quests',
+  },
+  gene_research_basic: {
+    name: '基礎基因研究',
+    description: '嘗試從資料中找出配種線索，成功率極低但累積後重置。',
+    cost: { Wood: 30, Ore: 15, researchPoints: 10 },
+    requiresBuilding: 'researchTable',
+    requires: ['monster_biology'],
+    unlocks: 'gene_research',
+    tier: 'gene',
+  },
+};
