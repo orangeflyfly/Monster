@@ -1,0 +1,6 @@
+Monster Sprite Pipeline raw prompt for goblin.
+Pixel art monster animation spritesheet for a cozy camp management game.
+Top-down / three-quarter view from slightly above.
+Specialty: logging. Tool: woodcutting axe.
+Layout: 7 rows x 6 columns. Rows 1-4 are walk down/left/up/right, 4 frames each. Row 5 work, 6 frames. Row 6 rest, 4 frames. Row 7 exhausted, 6 frames.
+Solid #FF00FF magenta background, no UI, no text, no borders.
