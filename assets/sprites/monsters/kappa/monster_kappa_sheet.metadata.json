@@ -1,0 +1,267 @@
+{
+  "assetId": "monster:kappa:workshop_sheet",
+  "monsterId": "kappa",
+  "slug": "kappa",
+  "file": "assets/sprites/monsters/kappa/monster_kappa_sheet.png",
+  "rawSource": "assets/sprites/monsters/kappa/monster_kappa_raw.png",
+  "cell": {
+    "width": 32,
+    "height": 32
+  },
+  "sheet": {
+    "columns": 6,
+    "rows": 7,
+    "width": 192,
+    "height": 224
+  },
+  "background": "transparent",
+  "sourceBackground": "#FF00FF",
+  "view": "topdown_3_4",
+  "actions": [
+    {
+      "id": "walk_down",
+      "row": 0,
+      "frames": 4,
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "walk_left",
+      "row": 1,
+      "frames": 4,
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "walk_up",
+      "row": 2,
+      "frames": 4,
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "walk_right",
+      "row": 3,
+      "frames": 4,
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "work",
+      "row": 4,
+      "frames": 6,
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "rest",
+      "row": 5,
+      "frames": 4,
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "exhausted",
+      "row": 6,
+      "frames": 6,
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "action": "walk_down",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/walk_down_01.png"
+    },
+    {
+      "action": "walk_down",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/walk_down_02.png"
+    },
+    {
+      "action": "walk_down",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/walk_down_03.png"
+    },
+    {
+      "action": "walk_down",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/walk_down_04.png"
+    },
+    {
+      "action": "walk_left",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/walk_left_01.png"
+    },
+    {
+      "action": "walk_left",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/walk_left_02.png"
+    },
+    {
+      "action": "walk_left",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/walk_left_03.png"
+    },
+    {
+      "action": "walk_left",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/walk_left_04.png"
+    },
+    {
+      "action": "walk_up",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/walk_up_01.png"
+    },
+    {
+      "action": "walk_up",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/walk_up_02.png"
+    },
+    {
+      "action": "walk_up",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/walk_up_03.png"
+    },
+    {
+      "action": "walk_up",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/walk_up_04.png"
+    },
+    {
+      "action": "walk_right",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/walk_right_01.png"
+    },
+    {
+      "action": "walk_right",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/walk_right_02.png"
+    },
+    {
+      "action": "walk_right",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/walk_right_03.png"
+    },
+    {
+      "action": "walk_right",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/walk_right_04.png"
+    },
+    {
+      "action": "work",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/work_01.png"
+    },
+    {
+      "action": "work",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/work_02.png"
+    },
+    {
+      "action": "work",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/work_03.png"
+    },
+    {
+      "action": "work",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/work_04.png"
+    },
+    {
+      "action": "work",
+      "frame": 4,
+      "file": "assets/sprites/monsters/kappa/frames/work_05.png"
+    },
+    {
+      "action": "work",
+      "frame": 5,
+      "file": "assets/sprites/monsters/kappa/frames/work_06.png"
+    },
+    {
+      "action": "rest",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/rest_01.png"
+    },
+    {
+      "action": "rest",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/rest_02.png"
+    },
+    {
+      "action": "rest",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/rest_03.png"
+    },
+    {
+      "action": "rest",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/rest_04.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 0,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_01.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 1,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_02.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 2,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_03.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 3,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_04.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 4,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_05.png"
+    },
+    {
+      "action": "exhausted",
+      "frame": 5,
+      "file": "assets/sprites/monsters/kappa/frames/exhausted_06.png"
+    }
+  ],
+  "pipeline": "Monster Sprite Pipeline",
+  "qcStatus": "needs_manual_animation_review"
+}
