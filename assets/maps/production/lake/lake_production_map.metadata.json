@@ -1,0 +1,26 @@
+{
+  "assetId": "production-map:lake",
+  "mapId": "lake",
+  "displayName": "Lake",
+  "file": "assets/maps/production/lake/lake_production_map.png",
+  "rawSource": "assets/maps/production/lake/lake_production_map-raw.png",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "unit": "px"
+  },
+  "perspective": "topdown_3_4",
+  "artStyle": "cute_pixel_art_management_map",
+  "deliverableType": "complete_composite_png",
+  "requiredContent": [
+    "main ground surface",
+    "theme decoration",
+    "monster activity space",
+    "initial work positions",
+    "future expansion space",
+    "facility slot visual language"
+  ],
+  "layeredStatus": "composite_only_first_pass",
+  "pipeline": "Map Generation Pipeline",
+  "qcStatus": "needs_manual_layout_review"
+}

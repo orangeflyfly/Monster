@@ -1,0 +1,4 @@
+Map Generation Pipeline raw prompt for Farm.
+Complete production area map for a cozy monster workshop management game.
+Pixel art, cute, clear, top-down / slightly angled overhead view.
+Target canvas: 1280x720. No UI, no text, no labels, no border, no characters.

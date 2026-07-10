@@ -1,0 +1,13 @@
+{
+  "status": "processed",
+  "checks": {
+    "fileExists": true,
+    "canvas1280x720": true,
+    "noRuntimeHook": true,
+    "layeredSeparation": "not_done_in_first_pass"
+  },
+  "notes": [
+    "This first pass outputs the requested complete composite map PNG.",
+    "Future layered pass should regenerate foundation-only base, decor layer, and preview separately."
+  ]
+}
