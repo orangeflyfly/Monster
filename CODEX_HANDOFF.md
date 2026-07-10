@@ -1,0 +1,21 @@
+# Monster Workshop Handoff
+
+- Goal: Build a directly playable browser idle monster workshop game.
+- Phase: Stage 4 personality/mood relationship group, partial activation.
+- Latest work: Rebuilt monster `display` sprites from high-resolution `monster_*_raw.png` sources using a single-subject per-cell extraction pass. This avoids the bad expanded-crop issue where one DISPLAY frame contained multiple neighboring sprites, and avoids the mosaic look caused by scaling 32x32 runtime frames.
+- Modified files:
+  - `assets/sprites/monsters/goblin/display/*.png`
+  - `assets/sprites/monsters/grass_spirit/display/*.png`
+  - `assets/sprites/monsters/kappa/display/*.png`
+  - `assets/sprites/monsters/stone_golem/display/*.png`
+  - `assets/sprites/monsters/wolf_hound/display/*.png`
+  - `CODEX_HANDOFF.md`
+- Verification:
+  - Confirmed raw source images are high resolution (around 1250px+), while runtime frames are only 32x32.
+  - Rebuilt display PNGs from raw grid cells into 320x320 canvases.
+  - Visually checked final wolf display contact sheet: no multi-sprite frames, no half-body `04` frame, and no visible purple residue.
+  - Visually checked kappa display contact sheet to confirm fishing rod/bucket props remained intact after purple cleanup.
+- Known risks:
+  - Temporary `_manual_check.png` contact sheets remain in `assets/sprites/monsters` for visual review.
+  - Browser/UI verification was not run, so monster portrait and walking display should be checked in-game.
+- Next safest task: Open monster vault and production map to visually confirm portrait and walking sprite scale.
